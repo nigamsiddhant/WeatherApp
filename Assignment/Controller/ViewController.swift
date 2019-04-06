@@ -113,13 +113,13 @@ class ViewController: UIViewController {
     
     private func checkTemperature(temperature: Float) {
         print(temperature)
-        if temperature <= 1 {
+        if temperature <= 33 {
             temperatureImageView.image = UIImage.init(named: "snowing")
         }
-        else if temperature <= 20 {
+        else if temperature <= 68 {
             temperatureImageView.image = UIImage.init(named: "cloud")
         }
-        else if temperature <= 40 {
+        else if temperature <= 104 {
             temperatureImageView.image = UIImage.init(named: "both")
         }
         else {
@@ -163,6 +163,7 @@ class ViewController: UIViewController {
     
     private func weatherApiFetch(latitude: CLLocationDegrees,longitude: CLLocationDegrees) {
         self.activityIndicator.startAnimating()
+        self.view.isUserInteractionEnabled = false
         print(latitude)
         print(longitude)
         isApiCalled = true
@@ -174,6 +175,7 @@ class ViewController: UIViewController {
             case .success:
                 if let jsonResponse = response.result.value as? NSDictionary {
                     self.activityIndicator.stopAnimating()
+                    self.view.isUserInteractionEnabled = true
                     let timeZone = jsonResponse.value(forKey: "timezone") as? String
                     
                     self.weather = Weather(latitude: "0", longitude: "0", timeZone: timeZone ?? "")
@@ -218,7 +220,7 @@ class ViewController: UIViewController {
                         
                         if let currentWeathers = self.currentWeather {
                             
-                            self.temperatureLabel.text = currentWeathers.temperature + "°"
+                            self.temperatureLabel.text = currentWeathers.temperature + "°F"
                             
                             self.windLabel.text = currentWeathers.windSpeed + "mph"
                             
