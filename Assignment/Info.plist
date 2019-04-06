@@ -47,10 +47,10 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>asdjhasjk</string>
+	<string>Would like to use your location to track temperature at your place</string>
 	<key>NSLocationUsageDescription</key>
 	<string>Would like to use your location to track temperature at your place</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>asdas</string>
+	<string>Would like to use your location to track temperature at your place</string>
 </dict>
 </plist>

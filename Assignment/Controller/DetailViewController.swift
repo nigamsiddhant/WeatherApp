@@ -48,7 +48,7 @@ class DetailViewController: UIViewController {
             self.tableView.reloadData()
         }
         
-        let cancel = CancelButton(title: "daily") {
+        let cancel = CancelButton(title: "Cancel") {
             print("You canceled the dialog.")
             self.navigationController?.popToRootViewController(animated: true)
         }
